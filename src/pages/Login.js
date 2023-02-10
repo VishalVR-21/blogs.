@@ -39,12 +39,20 @@ export default function Registration() {
       //   body:JSON.stringify({name,password}),
       //   Headers:{'Content-Type':'application/json'}
       // })
-      await fetch('http://localhost:4000/test',{
+     const response = await fetch('http://localhost:4000/register',{
         method: 'POST',
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({name,email, password}),
         headers: {'Content-Type':'application/json'}
       })
       console.log("fetching done")
+      if(response.status==200)
+      {
+        alert("registration succesfull")
+      }
+      else
+      {
+        alert("registration failed")
+      }
   };
  
   // Showing success message
@@ -86,11 +94,11 @@ export default function Registration() {
       </div>
  
       <form>
-        {/* Labels and inputs for form data */}
-        {/* <label className="label">Name</label>
+        Labels and inputs for form data 
+         <label className="label">Name</label>
         <input onChange={handleName} className="input"
           value={name} type="text" />
-  */}
+ 
         <label className="label">Email</label>
         <input onChange={handleEmail} className="input"
           value={email} type="email" />
