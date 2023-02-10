@@ -54,6 +54,7 @@ export default function Registration() {
       else
       {
         alert("registration failed")
+        return <Navigate  to='/'/>
       }
   };
   if(redirect)
